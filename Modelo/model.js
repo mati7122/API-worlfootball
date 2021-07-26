@@ -1,19 +1,18 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const ClubData = new Schema({
-    clubName: String,
-    stadium: String,
-    match: {
-        today: {date: String, Local: String, Visitor: String},
-        tomorrow: {date: String, Local: String, Visitor: String},
-        next: {date: String, Local: String, Visitor: String}
-    },
-    new: {
-        title: String,
-        content: String,
-        image: String,
-        date: String
+//Clubes : River, Flamengo, Barcelona, Real Madrid, Psg, Monaco, Leister city, Arsenal, Maschester United, Manchester city
+//Selecciones : Argentina, Brasil, España, Alemania, Francia
+
+const ClubData = Schema({
+    team : String,
+    dt : String,
+    stadium : String,
+    players : {
+        gk : [String],
+        def : [String],
+        med : [String],
+        del : [String]
     }
 });
 

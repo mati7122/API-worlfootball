@@ -1,24 +1,16 @@
-//cargar modulos node para crear servidor
 const express = require('express');
 const bodyParser = require('body-parser');
 
-//ejecutar express(http)
-const app = express();
+app = express();
 
-//cargar ficheros rutas
-const dateRoutes = require('fichero de rutas')
+//import routes
+const routes = require('./routes');
 
 //Middlewares
-app.use(bodyParser.urlencoded({ extended:false }));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-//CORS
-app.use((req, res, next) => {
+//load routes
+app.use('/api', routes);
 
-});
-
-//añadir prefijo a rutas
-app.use('/api' , rutas)
-
-//exportar modulo
 module.exports = app;

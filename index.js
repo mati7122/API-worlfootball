@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
+const port = 3200;
+const app = require('./app');
 
-const port = 3700;
-
-mongoose.set('useFindAndModify', false);
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/api_rest_blog', { useNewUrlParser: true })
+mongoose.connect('mongodb+srv://matiash:matiash@carsdb.290x4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log("La conexion a la base de datos se ah realizado con exito!");
+        console.log('La conexion ah la base de datos ah sido establecida')
+
+        app.listen(port, () => {
+            console.log(`Servidor corriendo en puerto ${port}`)
+        })
     })
+
+
+
