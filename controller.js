@@ -11,7 +11,7 @@ const controller = {
         })
     },
 
-    test2: (req, res) =>  {
+    test2: (req, res) => {
         res.status(200).send({
             message: 'Ruta de prueba Nº2'
         })
@@ -33,7 +33,7 @@ const controller = {
 
         let teamModel = new Team();
 
-        //Recogo los datos
+        //Recojo los datos
 
         teamModel.team = params.team;
         teamModel.dt = params.dt;
@@ -50,6 +50,24 @@ const controller = {
                 message: 'Los datos han sido guardados con exito'
             })
         })
+    },
+
+    getAll: (req, res) => {
+
+        Team.find({}).exec((err, data) => {
+            if (err) {
+                res.status(200).send({
+                    status: 'error',
+                    message: 'no se ah podido realizar la peticion'
+                });
+            }
+
+            if (data) return res.status(200).send({
+                status: 'succes',
+                data
+            })
+        });
+
     }
 }
 
