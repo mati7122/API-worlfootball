@@ -1,5 +1,5 @@
 
-const Team = require('./Modelo/model');
+const Team = require('./model');
 
 const controller = {
 
