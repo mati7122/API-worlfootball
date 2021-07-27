@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const port = 3200;
+const port = 3000;
 const app = require('./app');
 
 mongoose.connect('mongodb+srv://matiash:matiash@carsdb.290x4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
