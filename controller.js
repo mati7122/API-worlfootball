@@ -106,7 +106,7 @@ const controller = {
 
     getAll: (req, res) => {
 
-        Team.find({}).exec((err, data) => {
+        Team.find({}).exec((err, clubdata) => {
             if (err) {
                 res.status(200).send({
                     status: 'error',
@@ -114,9 +114,9 @@ const controller = {
                 });
             }
 
-            if (data) return res.status(200).send({
+            if (clubdata) return res.status(200).send({
                 status: 'succes',
-                data
+                clubdata
             })
         });
 
