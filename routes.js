@@ -4,13 +4,28 @@ const express = require('express');
 
 const router = express.Router();
 
+const multipart = require('connect-multiparty');
+const md_upload = multipart({ uploadDir : './uploadImages' });
+
 //routes test
 router.get('/test', controller.test);
-router.get('/test2', controller.test2);
-router.post('/test3', controller.test3);
 
-//routes 
-router.post('/save-data', controller.save);
-router.get('/all-data', controller.getAll);
+//routes clubData
+router.post('/save-data', controller.save); //CHECK
+router.post('/stadium-data/:id', controller.saveStadiumData);
+router.get('/one-data/:id', controller.getOne) //CHECK
+router.get('/all-data', controller.getAll); //CHECK
+router.post('/upload-image/:id', md_upload , controller.uploadImage); //CHECK
+router.get('/get-image/:image', controller.getImage); //CHECK
+
+//routes matchData
+router.post('/save-match', controller.saveMatch); //CHECK
+router.get('/one-match/:id', controller.getOneMatch); //CHECK
+router.get('/all-match', controller.getAllMatch); //CHECK
+
+//routes newData
+router.post('/save-new', controller.newSave); //CHECK
+router.get('/get-one-new/:id', controller.newGetOneData); //CHECK
+router.get('/get-news', controller.newsGetAllData); //CHECK
 
 module.exports = router;
